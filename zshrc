@@ -5,8 +5,8 @@
 #  [ -f "$DOTFILE" ] && source "$DOTFILE"
 #done
 
-export DOTFILES_DIR=~/.dotfiles
-source $DOTFILES_DIR/.alias
+export DOTFILES_DIR=~/dotfiles
+source $DOTFILES_DIR/alias
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh

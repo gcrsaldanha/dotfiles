@@ -1,7 +1,0 @@
-alias ezsh="vi ~/.zshrc"
-alias szsh="source ~/.zshrc"
-alias dev="source .envs/dev/bin/activate"
-alias test="sorce .envs/test/bin/activate"
-alias dk="deactivate"
-alias runserver="./manage.py runserver"
-alias shell="./manage.py shell"
