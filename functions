@@ -1,0 +1,7 @@
+#!/bin/bash
+function repo() {
+    cd "$HOME/Repositories/$1"
+}
+function env() {
+    source ".envs/$1/bin/activate"
+}
