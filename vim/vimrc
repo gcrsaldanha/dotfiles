@@ -1,0 +1,141 @@
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+" Enable per-project vimrc configuration
+set exrc
+
+" ================ General Config ====================
+" Automatic reloading of .vimrc
+" autocmd! BufWritePost .vimrc source %
+syntax on                       " Syntax highlighting
+set t_Co=256 " Use 256 colors in terminal
+" colorscheme molokai             " Set my colorscheme (~/.vim/colors/molokai.vim)
+colorscheme gruvbox
+set background=dark
+let mapleader="\<Space>"        " Use as <leader><key>
+set number                      " Line numbers are good
+set relativenumber              " Show line numbers relative to local position
+set cursorline                  " Show cursorline
+" set cursorcolumn                " Show cursorcolumn
+set showcmd                     " Show incomplete cmds down the bottom
+set showmode                    " Show current mode down the bottom
+set gcr=a:blinkon0              " Disable cursor blink
+set visualbell                  " No sounds
+set autoread                    " Reload files changed outside vim
+set hidden                      " Allow (liberately) buffers in the background w/out a window
+set wildmenu                    " Enable ctrl-n and ctrl-p to scroll thru matches
+set wildmode=list:longest,full  " On tab: show list, second tab: show all completions
+set encoding=utf-8              " Default encoding
+set title                       " Set title of the term tab
+set backspace=2                 " Backspace deletes like most programs in insert mode
+set nobackup                    " ? Do not backup (speeds up?)
+set nowritebackup               " ? Same as above
+set noswapfile                  " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=50                  " ? Keeps up to 50 last commands
+set ruler                       " show the cursor position all the time
+set laststatus=2                " Always display the status line
+set autowrite                   " Automatically :write before running commands
+set nowrap                      " Don't wrap lines
+set ttyfast
+set lazyredraw
+set mouse=a
+set clipboard=unnamed           " Access system clipboard
+hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
+" Set how special characters must be shown
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+set list                        " Turns on showing special characters
+let g:netrw_liststyle = 3       " Set netrw view to tree
+
+" ================ Indentation ======================
+set expandtab       " Tabs are converted to spaces
+set autoindent      " Auto indent file
+set smartindent     " Try to indent smart-ass-likely
+set smarttab        " ? No idea
+set shiftwidth=2    " Tab size
+set softtabstop=2   " Tab size when reading a file
+set tabstop=2       " Tab size when writing to a file
+
+" Auto indent pasted text (? does it work?)
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+
+" Try to detect file type
+filetype on
+" Enable loading plugin file for specific file type
+filetype plugin on
+" Enable loading indent file for specific file type
+filetype indent on
+
+
+" ================ Folds ============================
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+set foldlevel=99
+" Remap folding
+nnoremap <leader>f za
+
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backups')
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+" ================ Scrolling ========================
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+
+" ================ Search ===========================
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+" Stop highlighting on CR
+map <CR> :nohl<CR>
+
+" ================ Window Navigation ========================
+" Easier split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" when opening horizontal splits, place cursor in new split
+set splitbelow
+" when opening vertical splits, place cursor in new split
+set splitright
+" remap window equal resizing to leader equals
+nnoremap <Leader>= <C-W><C-=>
+nnoremap <Leader>/ :vs<CR>
+nnoremap <Leader>- :sv<CR>
+nnoremap <Leader>q :q<CR>
+" Figure out why this is not working
+nnoremap <Leader>w 80<C-W>|
+
+" ================ Buffer Navigation ========================
+" Go to next buffer in cycle
+nnoremap <Leader>n :bn<CR>
+" Go to previous buffer in cycle
+nnoremap <Leader>m :bp<CR>
+" Go to last buffer
+nnoremap <Leader><Tab> :b#<CR>
+" Delete current buffer (if no changes)
+nnoremap <Leader>bd :bd<CR>
+" Open buffer list
+nnoremap <Leader>bb :ls<CR>
+
+" ================ Small Hacks ========================
+" Keep my selection while indenting
+vnoremap < <gv
+vnoremap > >gv
+
+" ================ Post-mortem Configurations========================
+" disable unsafe commands in project-specific .vimrc files
+set secure
+
+" ================ Miscellaneous========================
+inoremap jj <ESC>
