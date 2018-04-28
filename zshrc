@@ -4,8 +4,8 @@
 #do
 #  [ -f "$DOTFILE" ] && source "$DOTFILE"
 #done
-source $HOME/dotfiles/alias
-export DOTFILES_DIR=~/dotfiles
+source $HOME/.dotfiles/alias
+export DOTFILES_DIR=~/.dotfiles
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -65,7 +65,8 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+  git,
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -103,4 +104,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval $(thefuck --alias)
