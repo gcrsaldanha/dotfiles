@@ -45,6 +45,7 @@ hi MatchParen cterm=underline ctermbg=none ctermfg=magenta
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list                        " Turns on showing special characters
 let g:netrw_liststyle = 3       " Set netrw view to tree
+set shell=/usr/bin/zsh
 
 " ================ Indentation ======================
 set expandtab       " Tabs are converted to spaces
