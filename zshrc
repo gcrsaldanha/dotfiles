@@ -4,11 +4,12 @@
 #do
 #  [ -f "$DOTFILE" ] && source "$DOTFILE"
 #done
-source $HOME/.dotfiles/alias
-export DOT=~/.dotfiles
+export DOT=$HOME/.dotfiles
+source $DOT/alias
+
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -104,3 +105,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+source $DOT/functions
