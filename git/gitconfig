@@ -10,3 +10,9 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt =false
+[alias]
+  d = difftool
