@@ -11,3 +11,9 @@
   unstage = reset HEAD --
   last = log -1 HEAD
   pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[alias]
+  d = difftool
