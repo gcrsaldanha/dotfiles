@@ -1,12 +1,13 @@
 [user]
-	name = Gabriel Saldanha
-	email = gabrielcrsaldanha@gmail.com
+  name = Gabriel Saldanha
+  email = gabrielcrsaldanha@gmail.com
 [core]
-	editor = vim
+  editor = vim
 [alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	unstage = reset HEAD --
-	last = log -1 HEAD
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"

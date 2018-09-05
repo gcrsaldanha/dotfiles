@@ -5,3 +5,9 @@ repo() {
 env() {
     source ".envs/$1/bin/activate"
 }
+comp() {
+  npm start "sling-web-component-$1"
+}
+biz() {
+  npm start "sling-web-business-$1"
+}
